@@ -109,7 +109,7 @@ var budgetController = (function() {
             totalInc: data.totals.inc,
             totalExp: data.totals.exp,
             percentage: data.percentage
-        })
+        }),
         /* same as:
             getBudget: function() {
                 budget: data.budget,
@@ -118,6 +118,9 @@ var budgetController = (function() {
                 percentage: data.percentage
             }
         */
+        displayData: function() {
+            console.log(data);
+        }
     }
 
 })();
@@ -278,10 +281,10 @@ var controller = (function(budgetCtrl, UICtrl) {
             // '-' is the split character
             splitID = itemID.split('-');
             type = splitID[0];
-            ID = splitID[1];
+            ID = parseInt(splitID[1]);
 
             // 1. Delete item from data structure
-
+            budgetController.deleteItem(type, ID);
 
             // 2. Delete item from UI
 
